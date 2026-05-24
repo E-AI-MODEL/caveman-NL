@@ -6,8 +6,9 @@ Code, URLs en paden blijven letterlijk.
 
 ## Wat dit is
 
-Een skill voor LLMs (ChatGPT, Claude, e.a.) die antwoorden comprimeert.  
-Gebaseerd op de [caveman-repo](https://github.com/echohive42/caveman) (echohive42).  
+Een Nederlandstalige variant op de originele [caveman](https://github.com/JuliusBrussee/caveman) van Julius Brussee.  
+Deze repo vertaalt en past het idee toe voor Nederlandstalig gebruik, met behoud van het uitgangspunt: minder outputwoorden, zelfde technische scherpte.
+
 Dit is de **Nederlandstalige v2** met:
 
 - **4 niveaus**: vuur (lite), speer (full), rots (ultra), wenyan (klassiek Chinees)
@@ -57,11 +58,11 @@ Stop met `normal mode` of `/caveman off`.
 
 ## Tokenbesparing
 
-Gemiddeld **65%** minder output-tokens (range 22–87%, afhankelijk van teksttype).  
-Benchmarks uit originele repo. Let op: de README daar claimt “~75%”, maar reproduceerbare metingen tonen 65%.
+De originele caveman-repo claimt ongeveer **75% minder output-tokens**.  
+Deze NL-variant gebruikt dat als richtpunt, maar meet eigen resultaten nog niet automatisch.
 
 ## Credits
 
-- Originele architectuur: [echohive42/caveman](https://github.com/echohive42/caveman)
-- NL-vertaling en doorontwikkeling: deze repo
+- Originele maker en repo: [Julius Brussee – caveman](https://github.com/JuliusBrussee/caveman)
+- NL-variant en onderwijslaag: deze repo's
 - Inspiratie: holbewoners, overal.
