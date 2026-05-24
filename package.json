@@ -1,0 +1,35 @@
+{
+  "name": "caveman-nl-installer",
+  "version": "0.1.0",
+  "description": "Installer voor caveman-NL: Nederlandstalige caveman-skill.",
+  "license": "MIT",
+  "author": "E-AI-MODEL contributors",
+  "homepage": "https://github.com/E-AI-MODEL/caveman-NL",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/E-AI-MODEL/caveman-NL.git"
+  },
+  "bugs": {
+    "url": "https://github.com/E-AI-MODEL/caveman-NL/issues"
+  },
+  "bin": {
+    "caveman-nl": "./bin/install.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "files": [
+    "bin/",
+    "SKILL.md",
+    "skills/",
+    "commands/",
+    "mcp-middleware/",
+    "hooks/",
+    "README.md",
+    "INSTALL.md",
+    "LICENSE"
+  ]
+}
