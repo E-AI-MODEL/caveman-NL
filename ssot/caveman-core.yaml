@@ -1,0 +1,68 @@
+meta:
+  name: "caveman-nl"
+  version: "1.0.0"
+  description: "Praat als holenman – redeneerkracht behouden, output-woorden schrappen"
+  philosophy: "Mond klein, brein groot. Raakt alleen output-tokens, nooit reasoning-tokens."
+
+levels:
+  - id: lite
+    name: "vuur"
+    description: "Lichte compressie – verkort zinnen, houd nuance"
+    token_reduction: "25-40%"
+  - id: full
+    name: "speer"
+    description: "Volle compressie – telegramstijl, zelfstandige naamwoorden en werkwoorden"
+    token_reduction: "40-65%"
+  - id: ultra
+    name: "rots"
+    description: "Extreme compressie – kale kernwoorden, symbolen waar mogelijk"
+    token_reduction: "65-87%"
+  - id: wenyan
+    name: "wenyan"
+    description: "Klassiek-Chinese stijl – minimale karakters, oude grammatica"
+    token_reduction: "varieert"
+
+triggers:
+  activate:
+    - "/caveman"
+    - "praat als holenman"
+    - "holenman aan"
+    - "caveman mode"
+  deactivate:
+    - "normal mode"
+    - "normaal doen"
+    - "stop holenman"
+    - "/normal"
+
+hooks:
+  session_flag: ".caveman-session"
+  description: >
+    Als bestand .caveman-session in werkdirectory bestaat,
+    dan start sessie automatisch in holenman-modus (niveau: full).
+    Geen /caveman commando nodig bij start.
+  badge: "[HOLENMAN] ⛏ {saved_tokens}"
+
+guarantees:
+  byte_preservation:
+    - code
+    - urls
+    - file_paths
+  description: "Code, URLs en bestandspaden blijven letterlijk onveranderd."
+
+slash_commands:
+  - /caveman
+  - /caveman-commit
+  - /caveman-review
+  - /caveman-stats
+  - /caveman-compress
+
+mcp_middleware:
+  name: "caveman-shrink"
+  function: "Wikkelt MCP-servers, comprimeert tool descriptions tot kernwoorden"
+  token_saving: "tot 46% op tool descriptions"
+
+benchmarks:
+  bron: "originele repo (echohive42/caveman)"
+  range: "22-87%"
+  gemiddeld: "65%"
+  noot: "README claim '~75%' niet reproduceerbaar; gemeten gemiddelde is 65%"
