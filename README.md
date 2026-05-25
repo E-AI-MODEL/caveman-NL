@@ -2,59 +2,86 @@
 
 Mond klein, brein groot.  
 Holenman-praat snijdt alleen **output-tokens**, nooit jouw redenering.  
-Code, URLs en paden blijven letterlijk.  
+Code, URLs en paden blijven letterlijk.
 
 ## Wat dit is
 
 Een Nederlandstalige variant op de originele [caveman](https://github.com/JuliusBrussee/caveman) van Julius Brussee.  
 Deze repo vertaalt en past het idee toe voor Nederlandstalig gebruik, met behoud van het uitgangspunt: minder outputwoorden, zelfde technische scherpte.
 
-Dit is de **Nederlandstalige v2** met:
+## Snel starten
 
-- **4 niveaus**: vuur (lite), speer (full), rots (ultra), wenyan (klassiek Chinees)
-- **5 slash-commando's**: `/caveman`, `/caveman-commit`, `/caveman-review`, `/caveman-stats`, `/caveman-compress`
-- **Hook-architectuur**: automatisch starten via `.caveman-session` bestand
-- **MCP-middleware**: `caveman-shrink` comprimeert tool descriptions
-- **Statusbadge**: `[HOLENMAN] ⛏ 12.4k`
-
-## Structuur
-
-```text
-caveman-NL/
-├── ssot/
-│   └── caveman-core.yaml
-├── skill-caveman-nl.md
-├── commands/
-│   ├── caveman.md
-│   ├── caveman-commit.md
-│   ├── caveman-review.md
-│   ├── caveman-stats.md
-│   └── caveman-compress.md
-├── mcp-middleware/
-│   └── caveman-shrink.js
-├── hooks/
-│   └── session-hook.sh
-└── README.md
+```bash
+npx -y github:E-AI-MODEL/caveman-NL -- --with-init
 ```
 
-## Installatie
+Dit kopieert de skill naar:
 
-1. Clone deze repo.
-2. Voeg de skill `skill-caveman-nl.md` toe aan je LLM-interface.
-3. Optioneel: source `hooks/session-hook.sh` in je shell voor automatische activatie.
-4. Optioneel: gebruik `mcp-middleware/caveman-shrink.js` om MCP-tool descriptions te verkleinen.
+```text
+~/.caveman-nl/skills/caveman-nl/SKILL.md
+```
 
-## Gebruik
+Met `--with-init` schrijft de installer ook een blok naar `AGENTS.md` in je huidige repo.
 
-Typ `/caveman` of zeg *“praat als holenman”*.  
-Kies een niveau:
+Daarna kun je in je agent gebruiken:
 
-- `/caveman lite` – kortere zinnen, samenhang blijft
-- `/caveman` – telegramstijl (standaard)
-- `/caveman ultra` – kale kernwoorden
-- `/caveman wenyan` – klassiek Chinees
+```text
+/caveman
+```
 
-Stop met `normal mode` of `/caveman off`.
+Of:
+
+```text
+holenman aan
+```
+
+Stop met:
+
+```text
+/caveman off
+```
+
+## Lokaal installeren
+
+```bash
+git clone https://github.com/E-AI-MODEL/caveman-NL.git
+cd caveman-NL
+node bin/install.js --with-init
+```
+
+Windows PowerShell:
+
+```powershell
+npx -y github:E-AI-MODEL/caveman-NL -- --with-init
+```
+
+Verwijderen:
+
+```bash
+npx -y github:E-AI-MODEL/caveman-NL -- --uninstall
+```
+
+## Wat zit erin?
+
+- `SKILL.md` – echte skill-entrypoint met YAML-frontmatter
+- `bin/install.js` – Node-installer
+- `install.sh` en `install.ps1` – lokale shims
+- `package.json` – npx/bin metadata
+- `commands/` – commanddocumentatie
+- `mcp-middleware/caveman-shrink.js` – simpele MCP-description-compressor
+- `hooks/session-hook.sh` – simpele shell-hook
+- `ssot/caveman-core.yaml` – specificatie
+
+## Niveaus
+
+- `/caveman lite` – kort en professioneel
+- `/caveman` – telegramstijl, standaard
+- `/caveman ultra` – maximaal kort
+- `/caveman wenyan` – klassiek Chinees waar passend
+
+## Let op
+
+Deze installer is eenvoudiger dan de originele caveman-installer. Hij doet geen volledige auto-detectie van alle agents. Hij maakt de skill praktisch bruikbaar via een lokaal skillbestand en optioneel via `AGENTS.md`.
 
 ## Tokenbesparing
 
